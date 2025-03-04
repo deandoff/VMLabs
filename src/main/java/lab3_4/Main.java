@@ -14,7 +14,7 @@ public class Main {
     }
 
     public static void MPI(double x, double y) {
-        int n = 0;
+        int k = 0;
         double x_k = x;
         double y_k = y;
         double x_k_1;
@@ -28,13 +28,13 @@ public class Main {
             x_k_1 = x_k - 0.1 * F1(x_k, y_k) - 0.4 * F2(x_k, y_k);
             y_k_1 = y_k - 0.1 * F1(x_k, y_k) + 0.6 * F2(x_k, y_k);
 
-            System.out.printf("| %5d | %12.7f | %12.7f | %14.7f | %12.7f | %12.7f | %14.7f |%n", n, x_k, x_k_1, Math.abs(x_k_1-x_k), y_k, y_k_1, Math.abs(y_k_1-y_k));
+            System.out.printf("| %5d | %12.7f | %12.7f | %14.7f | %12.7f | %12.7f | %14.7f |%n", k, x_k, x_k_1, Math.abs(x_k_1-x_k), y_k, y_k_1, Math.abs(y_k_1-y_k));
 
-            if (Math.abs(x_k_1-x_k) < EPS && Math.abs(y_k_1-y_k) < EPS) {
+            if (Math.abs(x_k_1-x_k) <= EPS && Math.abs(y_k_1-y_k) <= EPS) {
                 break;
             }
 
-            n++;
+            k++;
             x_k = x_k_1;
             y_k = y_k_1;
 
@@ -42,7 +42,7 @@ public class Main {
     }
 
     public static void MN(double x, double y) {
-        int n = 0;
+        int k = 0;
         double x_k = x;
         double y_k = y;
         double x_k_1;
@@ -56,13 +56,13 @@ public class Main {
             x_k_1 = x_k - (x_k * x_k - y_k * y_k - 4 + 2 * x_k * y_k - 4 * y_k) / (2 * x_k + 2 * y_k);
             y_k_1 = y_k - (-(x_k * x_k) + y_k * y_k - 4 + 2 * x_k * y_k + 4 * x_k) / (2 * x_k + 2 * y_k);
 
-            System.out.printf("| %5d | %12.7f | %12.7f | %14.7f | %12.7f | %12.7f | %14.7f |%n", n, x_k, x_k_1, Math.abs(x_k_1-x_k), y_k, y_k_1, Math.abs(y_k_1-y_k));
+            System.out.printf("| %5d | %12.7f | %12.7f | %14.7f | %12.7f | %12.7f | %14.7f |%n", k, x_k, x_k_1, Math.abs(x_k_1-x_k), y_k, y_k_1, Math.abs(y_k_1-y_k));
 
-            if (Math.abs(x_k_1-x_k) < EPS && Math.abs(y_k_1-y_k) < EPS) {
+            if (Math.abs(x_k_1-x_k) <= EPS && Math.abs(y_k_1-y_k) <= EPS) {
                 break;
             }
 
-            n++;
+            k++;
             x_k = x_k_1;
             y_k = y_k_1;
 
