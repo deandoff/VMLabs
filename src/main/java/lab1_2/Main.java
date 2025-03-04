@@ -1,9 +1,11 @@
-package ru.deandoff.qa.lab1_2;
+package lab1_2;
+
+//ВАРИАНТ 16
 
 import java.util.Scanner;
 
 public class Main {
-    private static final double C = 0.04;
+    private static final double C = 0.1;
 
     private static final double EPS_1 = 0.001;
     private static final double EPS_2 = 0.0001;
